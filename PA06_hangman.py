@@ -35,14 +35,11 @@ def play_hangman():
 
             elif guess in word_li:
                 """Correct Guess"""
-                s = num_place(word_li,guess)
-                if len(s) == 1:
-                    """Only one correct letter in the random word"""
-                    raw[s[0]] = guess
-                else:
-                    """More than one correct letter in the random word"""
-                    for m in s:
-                        raw[m] = guess
+                counter = -1
+                for i in word:
+                    counter += 1
+                    if guess == i:
+                        raw[counter] = i
                 guess_left = guess_left
                 guessed_letters.append(guess)
 
@@ -65,13 +62,6 @@ def play_hangman():
         else:
             one_more_time = False
 
-def num_place(word_list,letter):
-    """This function is used to determine the position of the letter guessed in the word randomly chosen."""
-    a = len(word_list)
-    n = []
-    for m in range(a):
-        if word_list[m] == letter:
-            n.append(m)
-    return n
+
 
 play_hangman()
