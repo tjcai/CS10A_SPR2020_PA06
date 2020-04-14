@@ -2,17 +2,16 @@
    hangman_app.py is an app for playing hangman in the terminal
    it is also used as a module in the hangman_webapp flask app
 """
-import random
-
-file = open("wordlist_raw.txt")
-wordlist = list()
-for line in file:
-    line1 = line.split(" ")[0]
-    wordlist.append(line1.strip())
 
 def generate_random_word():
+    file = open("wordlist_raw.txt")
+    wordlist = list()
+    for line in file:
+        line1 = line.split(" ")[0]
+        wordlist.append(line1.strip())
+    import random
     word = random.choice(wordlist)
-    print(word) 
+    return word.lower()
 
 def play_hangman():
     one_more_time = True

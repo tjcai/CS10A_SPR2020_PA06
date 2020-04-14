@@ -20,7 +20,7 @@ def main():
 def play():
     global state
 
-    state['word']=str(hangman_app.generate_random_word())
+    state['word']=hangman_app.generate_random_word()
 
     state['guesses'] = []
     l = len(state['word'])
