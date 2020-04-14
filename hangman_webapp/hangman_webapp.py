@@ -78,5 +78,4 @@ def profile():
 
 
 if __name__ == '__main__':
-    app.run(debug = True)
-#'0.0.0.0',port=3000,
+    app.run('0.0.0.0',port=3000,debug = True)
