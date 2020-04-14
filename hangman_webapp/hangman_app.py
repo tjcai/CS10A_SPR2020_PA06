@@ -12,7 +12,7 @@ for line in file:
 
 def generate_random_word():
     word = random.choice(wordlist)
-    print(word)
+    print(word) 
 
 def play_hangman():
     one_more_time = True
