@@ -4,13 +4,17 @@
 """
 
 def generate_random_word():
-    file = open("wordlist_raw.txt")
+    file = open("wordlist_raw.txt","r")
+    text = file.read()
+    """
     wordlist = list()
     for line in file:
         line1 = line.split(" ")[0]
         wordlist.append(line1.strip())
-    import random
-    word = random.choice(wordlist)
+    """
+    wordlist = text.split("\n")
+    from random import choice
+    word = choice(wordlist)
     return word.lower()
 
 def play_hangman():
@@ -19,8 +23,7 @@ def play_hangman():
     while one_more_time:
         guessed_letters = []
         guess_left = 6
-        word_list = "python property happy lovely".split()
-        word = random.choice(word_list)
+        word = generate_random_word()
         word_li = list(word)
         done = False
 
