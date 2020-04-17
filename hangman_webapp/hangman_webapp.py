@@ -72,8 +72,11 @@ def hangman():
 
 @app.route('/about')
 def profile():
-    return "<h2> This game is made by team Hotpot. (Thanks Zeline for the help!)</h2>"
+    return render_template('about.html')
 
+@app.route('/team_bio')
+def team_bio():
+    return render_template('team_bio.html')
 
 
 
