@@ -19,10 +19,15 @@ def main():
 @app.route('/start')
 def play():
     global state
+    state = {'guesses':[],
+            'word':"interesting",
+            'word_so_far':"-",
+            'done':False,
+            "chances":6,
+            "response":" "}
 
     state['word']=hangman_app.generate_random_word()
 
-    state['guesses'] = []
     l = len(state['word'])
     b = '-'*l
     state['word_so_far'] = b
@@ -66,8 +71,11 @@ def hangman():
             elif state['chances'] == 0:
                 state['response'] = "You have used up your chances. The word is: %s" % state['word']
                 state['done'] = True
+            if state['done'] == True:
+                return render_template('end.html',state=state)
+            else:
+                return render_template('play.html',state=state)
 
-            return render_template('play.html',state=state)
 
 
 @app.route('/about')
@@ -81,4 +89,4 @@ def team_bio():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0',port=3000,debug = True)
+    app.run(debug = True)
